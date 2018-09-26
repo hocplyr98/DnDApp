@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_main">
+
+    <fragment
+        android:id="@+id/fragment_main"
+        android:name="com.msilverman.ddapp.ui.main.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/noteListAction"
+            app:destination="@id/noteListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.msilverman.ddapp.MainActivity"
+        android:label="main_activity"
+        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/noteListFragment"
+        android:name="com.msilverman.ddapp.ui.main.ui.note.NoteListFragment"
+        android:label="NoteFragment" >
+        <action
+            android:id="@+id/createNoteAction"
+            app:destination="@id/newNoteFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <activity
+        android:id="@+id/noteActivity"
+        android:name="com.msilverman.ddapp.ui.main.ui.note.NoteListActivity"
+        android:label="NoteActivity" />
+    <fragment
+        android:id="@+id/newNoteFragment"
+        android:name="com.msilverman.ddapp.ui.main.ui.note.NewNoteFragment"
+        android:label="NewNoteFragment"
+        tools:layout="@layout/fragment_new_note" />
+</navigation>
