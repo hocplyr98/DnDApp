@@ -20,6 +20,4 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         return Navigation.findNavController(this, R.id.fragment_main).navigateUp()
     }
-
-
-}
+ }

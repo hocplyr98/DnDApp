@@ -6,9 +6,9 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.navigation.Navigation
 import com.msilverman.ddapp.R
+import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainFragment : Fragment() {
 
@@ -28,8 +28,7 @@ class MainFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         // TODO: Use the ViewModel
 
-        val button: Button? = view?.findViewById(R.id.testButton)
-        button?.setOnClickListener{ view ->
+        testButton.setOnClickListener { view ->
             Navigation.findNavController(view).navigate(R.id.noteListAction)
         }
     }
