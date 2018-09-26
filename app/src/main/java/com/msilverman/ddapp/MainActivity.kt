@@ -2,16 +2,12 @@ package com.msilverman.ddapp
 
 import android.os.Bundle
 import android.support.v4.view.GravityCompat
-import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var toggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +18,17 @@ class MainActivity : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
             setHomeAsUpIndicator(R.drawable.ic_menu)
         }
+
+        nav_view.setNavigationItemSelectedListener { menuItem ->
+            menuItem.isCheckable
+            container.closeDrawers()
+            when (menuItem.itemId) {
+                R.id.nav_notes -> Navigation.findNavController(this, R.id.fragment_main).navigate(R.id.noteListAction)
+            }
+            true
+        }
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return when (item?.itemId) {
@@ -37,4 +43,4 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         return Navigation.findNavController(this, R.id.fragment_main).navigateUp()
     }
- }
+}
